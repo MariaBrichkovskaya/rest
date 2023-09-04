@@ -1,12 +1,12 @@
 package com.example.rest.dto;
 
 import com.example.rest.models.Sensor;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
-import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class MeasurementDTO {
     private Long id;
     private boolean raining;
