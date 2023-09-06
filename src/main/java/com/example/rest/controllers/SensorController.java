@@ -36,6 +36,9 @@ public class SensorController {
             FieldError error=bindingResult.getFieldError();
             throw new SensorNotCreatedException(error.getDefaultMessage());
         }
+        if (!(sensorService.findByName(sensorDTO.getName())==null)){
+            throw new SensorNotCreatedException("Name should be unique");
+        }
         sensorService.save(modelMapper.map(sensorDTO, Sensor.class));
         return ResponseEntity.ok(HttpStatus.OK);
     }
