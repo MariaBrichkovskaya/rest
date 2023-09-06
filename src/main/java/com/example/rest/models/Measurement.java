@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.Range;
 
 
 import java.time.LocalDateTime;
@@ -20,7 +20,8 @@ public class Measurement {
     private Long id;
     @Column(name = "raining")
     private boolean raining;
-    @Column(name = "value")
+    @Column(name = "value",nullable = false)
+    //@Range(min=-50, max=50)
     private Double value;
     @Column(name = "date")
     private LocalDateTime dateTime;
